@@ -4,7 +4,7 @@ from typing import Callable, Dict, Tuple, Any
 def cache(func: Callable) -> Callable:
     cache_storage: Dict[Tuple, Any] = {}
 
-    def wrapper(*args, **kwargs):
+    def wrapper(*args, **kwargs) -> Any:
         key = (args, frozenset(kwargs.items()))
         if key in cache_storage:
             print("Getting from cache")
